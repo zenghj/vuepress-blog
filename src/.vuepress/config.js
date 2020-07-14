@@ -73,5 +73,13 @@ module.exports = {
       // all other options of Vssue are allowed
       ...authAppConfig
     },
+    '@vuepress/medium-zoom': {
+      selector: '.vuepress-blog-theme-content :not(a) > img',
+      // medium-zoom options here
+      // See: https://github.com/francoischalifour/medium-zoom#options
+      options: {
+        margin: 16
+      }
+    }
   },
 }

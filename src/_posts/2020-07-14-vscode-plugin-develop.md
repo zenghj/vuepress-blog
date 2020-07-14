@@ -2,7 +2,7 @@
 title: vscode插件开发入门
 date: 2020-07-14
 tags:
-  - vscode
+  - Vscode
 author: Julianzeng
 location: Beijing
 ---

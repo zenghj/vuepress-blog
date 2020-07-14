@@ -8,7 +8,9 @@
   },
   "author": "Julianzeng <zenghj@outlook.com>",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.5.2"
+  },
   "dependencies": {
     "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "@vuepress/theme-blog": "^2.3.0",
