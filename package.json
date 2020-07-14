@@ -1,0 +1,16 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev doc",
+    "build": "vuepress build doc"
+  },
+  "author": "Julianzeng <zenghj@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "@vuepress/theme-blog": "^2.3.0",
+    "vuepress": "^1.5.2"
+  }
+}
