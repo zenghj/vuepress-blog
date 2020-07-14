@@ -1,4 +1,6 @@
 module.exports = {
+  base: '/vuepress-blog/',
+  dest: './docs',
   title: 'Julianzeng\'s Space',
   description: 'Just playing around',
   theme: '@vuepress/blog',

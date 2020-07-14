@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev doc",
-    "build": "vuepress build doc"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
   "author": "Julianzeng <zenghj@outlook.com>",
   "license": "MIT",
