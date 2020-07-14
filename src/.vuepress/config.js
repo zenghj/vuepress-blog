@@ -1,3 +1,10 @@
+const authAppConfig = {
+  owner: 'zenghj',
+  repo: 'vuepress-blog',
+  clientId: '16c7d85a4157b848f3d0',
+  clientSecret: '7c6ee601a1c68acce2c874eb63677822563aa7c0',
+};
+
 module.exports = {
   base: '/vuepress-blog/',
   dest: './docs',
@@ -37,20 +44,34 @@ module.exports = {
       contact: [
         {
           type: 'github',
-          link: 'https://github.com/vuepressjs/vuepress-theme-blog',
+          link: 'https://github.com/zenghj/vuepress-blog',
         },
       ],
       copyright: [
         {
           text: 'Copyright © 2020-present Vue.js',
-          link: '',
+          link: '/#',
         },
       ],
     },
+    // https://vuepress-theme-blog.ulivz.com/config/#comment
     comment: {
-      service: 'disqus',
-      shortname: 'vuepress-plugin-blog',
+      service: 'vssue',
+      ...authAppConfig
     },
+    // globalPagination: {}
+    hostname: 'https://zenghj.github.io', // enable sitemap
+    canonical_base: 'https://zenghj.github.io', // enable feed
+    // pwa: true
 
-  }
+  },
+  plugins: {
+    '@vssue/vuepress-plugin-vssue': {
+      // set `platform` rather than `api`
+      platform: 'github',
+
+      // all other options of Vssue are allowed
+      ...authAppConfig
+    },
+  },
 }

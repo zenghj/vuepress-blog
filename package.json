@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
+    "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "@vuepress/theme-blog": "^2.3.0",
     "vuepress": "^1.5.2"
   }

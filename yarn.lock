@@ -896,7 +896,7 @@
     date-fns "^1.29.0"
     qs "^6.6.0"
 
-"@vssue/vuepress-plugin-vssue@^1.2.0":
+"@vssue/vuepress-plugin-vssue@^1.2.0", "@vssue/vuepress-plugin-vssue@^1.4.6":
   version "1.4.6"
   resolved "https://registry.npm.taobao.org/@vssue/vuepress-plugin-vssue/download/@vssue/vuepress-plugin-vssue-1.4.6.tgz#0a231095f58b29bbd64c9ea964fa73add909ccfd"
   integrity sha1-CiMQlfWLKbvWTJ6pZPpzrdkJzP0=
