@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.5.2">
     
     <meta name="description" content="Just playing around">
-    <link rel="preload" href="/vuepress-blog/assets/css/0.styles.75cbbc7d.css" as="style"><link rel="preload" href="/vuepress-blog/assets/js/app.6df59946.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/6.0ff6fb4a.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/14.98e8c08a.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/4.b56d3b7e.js" as="script"><link rel="prefetch" href="/vuepress-blog/assets/js/10.4d3ba8c4.js"><link rel="prefetch" href="/vuepress-blog/assets/js/11.fc686bc8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/12.cd2de56f.js"><link rel="prefetch" href="/vuepress-blog/assets/js/13.a7b9ef84.js"><link rel="prefetch" href="/vuepress-blog/assets/js/15.d78fa487.js"><link rel="prefetch" href="/vuepress-blog/assets/js/16.256829fa.js"><link rel="prefetch" href="/vuepress-blog/assets/js/17.309aa719.js"><link rel="prefetch" href="/vuepress-blog/assets/js/18.40be9174.js"><link rel="prefetch" href="/vuepress-blog/assets/js/19.8749bad8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/20.965e6d73.js"><link rel="prefetch" href="/vuepress-blog/assets/js/3.554301a2.js"><link rel="prefetch" href="/vuepress-blog/assets/js/5.f1d2fdfc.js"><link rel="prefetch" href="/vuepress-blog/assets/js/7.2372dab1.js"><link rel="prefetch" href="/vuepress-blog/assets/js/8.c5aa49a5.js"><link rel="prefetch" href="/vuepress-blog/assets/js/9.6fcbba57.js"><link rel="prefetch" href="/vuepress-blog/assets/js/vuejs-paginate.0d486c7d.js">
+    <link rel="preload" href="/vuepress-blog/assets/css/0.styles.75cbbc7d.css" as="style"><link rel="preload" href="/vuepress-blog/assets/js/app.d07699fb.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/6.2aa12a2f.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/15.d2df16a2.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/4.022f0f46.js" as="script"><link rel="prefetch" href="/vuepress-blog/assets/js/10.a7fee4fe.js"><link rel="prefetch" href="/vuepress-blog/assets/js/11.3f1260c3.js"><link rel="prefetch" href="/vuepress-blog/assets/js/12.83a4ede7.js"><link rel="prefetch" href="/vuepress-blog/assets/js/13.1811c2b4.js"><link rel="prefetch" href="/vuepress-blog/assets/js/14.a1addfad.js"><link rel="prefetch" href="/vuepress-blog/assets/js/16.75759537.js"><link rel="prefetch" href="/vuepress-blog/assets/js/17.cb1fb000.js"><link rel="prefetch" href="/vuepress-blog/assets/js/18.28804758.js"><link rel="prefetch" href="/vuepress-blog/assets/js/19.8a0fb777.js"><link rel="prefetch" href="/vuepress-blog/assets/js/20.ae629ac5.js"><link rel="prefetch" href="/vuepress-blog/assets/js/3.2cf9b647.js"><link rel="prefetch" href="/vuepress-blog/assets/js/5.aa7ad2a2.js"><link rel="prefetch" href="/vuepress-blog/assets/js/7.1d9b96e5.js"><link rel="prefetch" href="/vuepress-blog/assets/js/8.1df312de.js"><link rel="prefetch" href="/vuepress-blog/assets/js/9.f8339af3.js"><link rel="prefetch" href="/vuepress-blog/assets/js/vuejs-paginate.4286f8e5.js">
     <link rel="stylesheet" href="/vuepress-blog/assets/css/0.styles.75cbbc7d.css">
   </head>
   <body>
@@ -54,31 +54,14 @@ app和server分离
           </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/vuepress-blog/tag/Node.js">
             Node.js
           </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2020/06/29/nodejs-module-and-hot-reload/"> <header itemprop="name headline" class="ui-post-title"><a href="/vuepress-blog/2020/06/29/nodejs-module-and-hot-reload/" class="nav-link">Nodejs模块机制及热更新实现</a></header> <p itemprop="description" class="ui-post-summary">
-        
-热更新实现
-
-方案1: 监听文件变更，然后重启应用，比如node-supervisor、PM2、node-dev
-方案2: 监听文件变更，更新模块， ...
+        日常前端开发过程中，有时我们会使用本地文件mock接口，通过一个config map对请求和mock文件进行映射，通过middleware的方式作用在webpack devServer上，问题是config变更时需要重启devServer，而重启速度比较慢，是否有一种方式不用重启即可实现config热更新？为了解决这个问题，下面我们先了解一下Node.js中模块的工作原理，然后从中找到解决方案。
+ ...
       </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Julianzeng</span> <span itemprop="address">
               in Beijing
           </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2020-06-29T00:00:00.000Z">
             Mon Jun 29 2020
           </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/vuepress-blog/tag/Node.js">
             Node.js
-          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2019/12/10/webpack-hot-reload/"> <header itemprop="name headline" class="ui-post-title"><a href="/vuepress-blog/2019/12/10/webpack-hot-reload/" class="nav-link">webpack热重载</a></header> <p itemprop="description" class="ui-post-summary">
-        
-doc:concepts:hot-module-replacement
-热重载Hot Module Replacement（HMR）是指在应用运行过程中不刷新页面的同时完成模块的修改、添加、删除，从而更新应用。
-
-怎么用
-
-[doc:guides:hot-module-re ...
-      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Julianzeng</span> <span itemprop="address">
-              in Beijing
-          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2019-12-10T00:00:00.000Z">
-            Tue Dec 10 2019
-          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/vuepress-blog/tag/Webpack">
-            Webpack
           </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2019/12/10/confirm-before-leave-page/"> <header itemprop="name headline" class="ui-post-title"><a href="/vuepress-blog/2019/12/10/confirm-before-leave-page/" class="nav-link">关于页面关闭之前弹窗提示阻止用户关闭页面</a></header> <p itemprop="description" class="ui-post-summary">
         
 onbeforeunload
@@ -95,9 +78,23 @@ window.onbeforeunload = function (e) {
             Tue Dec 10 2019
           </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/vuepress-blog/tag/Browser">
             Browser
+          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2019/12/10/webpack-hot-reload/"> <header itemprop="name headline" class="ui-post-title"><a href="/vuepress-blog/2019/12/10/webpack-hot-reload/" class="nav-link">webpack热重载</a></header> <p itemprop="description" class="ui-post-summary">
+        
+doc:concepts:hot-module-replacement
+热重载Hot Module Replacement（HMR）是指在应用运行过程中不刷新页面的同时完成模块的修改、添加、删除，从而更新应用。
+
+怎么用
+
+[doc:guides:hot-module-re ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Julianzeng</span> <span itemprop="address">
+              in Beijing
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2019-12-10T00:00:00.000Z">
+            Tue Dec 10 2019
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/vuepress-blog/tag/Webpack">
+            Webpack
           </a></div></footer></article></div> <!----></div></div></div> <footer class="footer" data-v-fdbf4940><div class="footer-left-wrap" data-v-fdbf4940><ul class="contact" data-v-fdbf4940><li class="contact-item" data-v-fdbf4940><a href="https://github.com/zenghj/vuepress-blog" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-fdbf4940><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-fdbf4940></path></svg>
           
         </a></li></ul></div> <div class="footer-right-wrap" data-v-fdbf4940><ul class="copyright" data-v-fdbf4940><li class="copyright-item" data-v-fdbf4940><a href="/vuepress-blog/#" class="nav-link" data-v-fdbf4940>Copyright © 2020-present Vue.js</a></li></ul></div></footer></div><div class="global-ui"></div></div>
-    <script src="/vuepress-blog/assets/js/app.6df59946.js" defer></script><script src="/vuepress-blog/assets/js/6.0ff6fb4a.js" defer></script><script src="/vuepress-blog/assets/js/14.98e8c08a.js" defer></script><script src="/vuepress-blog/assets/js/4.b56d3b7e.js" defer></script>
+    <script src="/vuepress-blog/assets/js/app.d07699fb.js" defer></script><script src="/vuepress-blog/assets/js/6.2aa12a2f.js" defer></script><script src="/vuepress-blog/assets/js/15.d2df16a2.js" defer></script><script src="/vuepress-blog/assets/js/4.022f0f46.js" defer></script>
   </body>
 </html>
