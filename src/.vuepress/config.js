@@ -10,6 +10,19 @@ module.exports = {
   dest: './docs',
   title: 'Julianzeng\'s Space',
   description: 'Just playing around',
+  head: [
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6e4e65a8fc9ab90248a37e794b19d594";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();`
+    ]
+  ],
   theme: '@vuepress/blog',
   themeConfig: {
     // sidebar: 'auto',
