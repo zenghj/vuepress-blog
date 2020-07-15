@@ -9,6 +9,7 @@
   },
   "author": "Julianzeng <zenghj@outlook.com>",
   "license": "MIT",
+  "homepage": "https://zenghj.github.io/vuepress-blog/",
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.5.2"
   },
