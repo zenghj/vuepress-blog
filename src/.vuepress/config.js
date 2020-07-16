@@ -78,21 +78,25 @@ module.exports = {
     // pwa: true
 
   },
-  plugins: {
-    '@vssue/vuepress-plugin-vssue': {
+  plugins: [
+    ['@vssue/vuepress-plugin-vssue', {
       // set `platform` rather than `api`
       platform: 'github',
 
       // all other options of Vssue are allowed
       ...authAppConfig
-    },
-    '@vuepress/medium-zoom': {
-      selector: '.vuepress-blog-theme-content :not(a) > img',
-      // medium-zoom options here
-      // See: https://github.com/francoischalifour/medium-zoom#options
-      options: {
-        margin: 16
+    }],
+    [
+      '@vuepress/medium-zoom',
+      {
+        selector: '.vuepress-blog-theme-content :not(a) > img',
+        // medium-zoom options here
+        // See: https://github.com/francoischalifour/medium-zoom#options
+        options: {
+          margin: 16
+        }
       }
-    }
-  },
+    ],
+    '@vuepress/back-to-top'
+  ],
 }

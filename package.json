@@ -11,10 +11,11 @@
   "license": "MIT",
   "homepage": "https://zenghj.github.io/vuepress-blog/",
   "devDependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.5.2"
+    "@vuepress/plugin-back-to-top": "^1.5.2"
   },
   "dependencies": {
     "@vssue/vuepress-plugin-vssue": "^1.4.6",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
     "@vuepress/theme-blog": "^2.3.0",
     "vuepress": "^1.5.2"
   }

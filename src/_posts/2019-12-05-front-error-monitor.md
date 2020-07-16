@@ -1,8 +1,8 @@
 ---
 title: 关于前端错误监控
-date: 2019-12-06
-# tags: 
-#   - Node.js
+date: 2019-12-05
+tags: 
+  - Other
 author: Julianzeng
 location: Beijing  
 ---
@@ -14,7 +14,7 @@ location: Beijing
 
 特点：可捕获同步异常错误，无法捕获异步Promise错误
 
-```
+```js
 try {
   throw new Error("oops");
 } catch (e) {
@@ -166,12 +166,12 @@ EventTarget.prototype.addEventListener = function (type, func, options) { // 重
 }
 
 ```
-## sourceMap错误定位
+<!-- ## sourceMap错误定位
 todo...
 
 ## vue中的错误捕获
 
-## react中的错误捕获
+## react中的错误捕获 -->
 
 
 

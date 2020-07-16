@@ -13,7 +13,7 @@ location: Beijing
 
 Node.js的模块相关代码在[lib/module.js](https://github.com/nodejs/node/blob/master/lib/module.js)，具体实现在[lib/internal/modules/cjs/loader.js](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/loader.js)
 
-执行`require('a.js')`时，会调用MODULE._LOAD，为模块例化一个Module对象，然后生成模块的wapper函数，接着执行函数，缓存结果。
+执行`require('a.js')`时，会调用MODULE._LOAD，为模块实例化一个Module对象，然后生成模块的wapper函数，接着执行函数，缓存结果。
 
 ```js
 function Module(id = '', parent) {

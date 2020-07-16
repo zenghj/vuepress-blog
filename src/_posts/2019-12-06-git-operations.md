@@ -1,5 +1,5 @@
 ---
-title: git非常规操作
+title: Git使用记录
 date: 2019-12-06
 tags: 
   - Git
@@ -9,10 +9,29 @@ location: Beijing
 
 ## git stash
 
-## git仓库迁移需要注意的事
+当你本地有一些未提交的修改时需要进行一些其他操作，但是又不想把这部分半成品的工作提交，这时使用`git stash`将这个状态缓存起来，然后操作完其他事情之后，回到当前分支，然后执行`git stash pop`把前面缓存的状态取出来。
+
+## git remote
+
+* `git remote -v` 例举当前存在的远程仓库
+* `git remote set-url origin $GIT_REPO_URL` 修改仓库对应的远程服务器地址, $GIT_REPO_URL可以是形如`https://github.com/USERNAME/REPOSITORY.git` 或 `git@github.com:USERNAME/REPOSITORY.git`的URL
 
 ## git rebase
-* https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/
+
+git rebase相比git merge会让提交记录更加扁平。
+
+![](../images/git-merge.png)
+
+<div style="text-align: center;">git merge</div>
+
+![](../images/git-rebase.png)
+
+<div style="text-align: center;">git rebase </div>
+
+### 参考
+* [git rebase](http://gitbook.liuhui998.com/4_2.html)
+* [An introduction to Git merge and rebase: what they are, and how to use them](https://www.freecodecamp.org/news/an-introduction-to-git-merge-and-rebase-what-they-are-and-how-to-use-them-131b863785f/)
+
 
 ## git submoudule
 
@@ -67,7 +86,7 @@ git submodule update
 
 （考虑不要直接在子模块修改内容吧）
 
-## 参考资源
+### 参考
 
 * [git submodule使用场景](https://zhuanlan.zhihu.com/p/61710235)
 * [Git 子模块 submodule 的使用](https://www.hozen.site/archives/23/)
