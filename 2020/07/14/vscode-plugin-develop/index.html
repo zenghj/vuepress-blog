@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vscode插件开发入门 | Julianzeng&#39;s Space</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <script>var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6e4e65a8fc9ab90248a37e794b19d594";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <meta name="description" content="
+
+建议使用官方脚手架创建
+
+安装脚手架工具
+npm install -g yo generator-code
+or yarn global add yo generator-code
+
+执行命令，依据提示初始化项目
+yo code
+
+项目结构
+
+.
+├── CHANGELOG.md
+├── README.md
+├── node_modules
+ ...">
+    <link rel="preload" href="/vuepress-blog/assets/css/0.styles.75cbbc7d.css" as="style"><link rel="preload" href="/vuepress-blog/assets/js/app.ef89cdfb.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/6.2aa12a2f.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/3.2cf9b647.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/7.1d9b96e5.js" as="script"><link rel="prefetch" href="/vuepress-blog/assets/js/10.fd322c10.js"><link rel="prefetch" href="/vuepress-blog/assets/js/11.724c3d8e.js"><link rel="prefetch" href="/vuepress-blog/assets/js/12.df91a61c.js"><link rel="prefetch" href="/vuepress-blog/assets/js/13.1811c2b4.js"><link rel="prefetch" href="/vuepress-blog/assets/js/14.a1addfad.js"><link rel="prefetch" href="/vuepress-blog/assets/js/15.d2df16a2.js"><link rel="prefetch" href="/vuepress-blog/assets/js/16.f2c4a051.js"><link rel="prefetch" href="/vuepress-blog/assets/js/17.7be38dcb.js"><link rel="prefetch" href="/vuepress-blog/assets/js/18.7de68c10.js"><link rel="prefetch" href="/vuepress-blog/assets/js/19.8a0fb777.js"><link rel="prefetch" href="/vuepress-blog/assets/js/20.ae629ac5.js"><link rel="prefetch" href="/vuepress-blog/assets/js/4.022f0f46.js"><link rel="prefetch" href="/vuepress-blog/assets/js/5.aa7ad2a2.js"><link rel="prefetch" href="/vuepress-blog/assets/js/8.1df312de.js"><link rel="prefetch" href="/vuepress-blog/assets/js/9.f8339af3.js"><link rel="prefetch" href="/vuepress-blog/assets/js/vuejs-paginate.4286f8e5.js">
+    <link rel="stylesheet" href="/vuepress-blog/assets/css/0.styles.75cbbc7d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/vuepress-blog/" class="nav-link home-link">Julianzeng's Space </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/vuepress-blog/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/vuepress-blog/tag/" class="nav-link">Tags</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/vuepress-blog/" class="nav-link mobile-home-link">Julianzeng's Space </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/vuepress-blog/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/vuepress-blog/tag/" class="nav-link">Tags</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        vscode插件开发入门
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Julianzeng</span> <span itemprop="address">   in Beijing</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2020-07-14T00:00:00.000Z">
+      Tue Jul 14 2020
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/vuepress-blog/tag/Vscode" data-v-42ccfcd5><span data-v-42ccfcd5>Vscode</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="创建-vscode-插件项目"><a href="#创建-vscode-插件项目" class="header-anchor">#</a> 创建 vscode 插件项目</h2> <p>建议使用官方脚手架创建</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装脚手架工具</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g yo generator-code
+<span class="token comment"># or yarn global add yo generator-code</span>
+
+<span class="token comment"># 执行命令，依据提示初始化项目</span>
+yo code
+</code></pre></div><p>项目结构</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">.</span>
+├── CHANGELOG.md
+├── README.md
+├── node_modules
+├── out
+├── package.json <span class="token comment"># 插件配置</span>
+├── src
+│   ├── extension.ts <span class="token comment"># 插件入口</span>
+│   └── <span class="token builtin class-name">test</span>
+├── tsconfig.json
+├── vsc-extension-quickstart.md
+└── yarn.lock
+
+</code></pre></div><p><code>package.json</code>文件中有几个重要的配置项</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./out/extension.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 入口配置</span>
+  <span class="token property">&quot;activationEvents&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// 指明插件的激活时机,</span>
+    <span class="token string">&quot;onCommand:helloword.helloWorld&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;onLanguage:javascript&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;onLanguage:vue&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contributes&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// 指明暴露出来的可执行的命令，用户可以打开命令面包，选中并执行这些命令</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;command&quot;</span><span class="token operator">:</span> <span class="token string">&quot;helloword.helloWorld&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hello World&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;capabilities&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;hoverProvider&quot;</span><span class="token operator">:</span> <span class="token string">&quot;true&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;configuration&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 声明配置项</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;publisher&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Julianzeng&quot;</span> <span class="token comment">// 发布插件时需要指明发布者</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="开发"><a href="#开发" class="header-anchor">#</a> 开发</h2> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// extension.ts</span>
+
+<span class="token comment">// The module 'vscode' contains the VS Code extensibility API</span>
+<span class="token comment">// Import the module and reference it with the alias vscode in your code below</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> vscode <span class="token keyword">from</span> <span class="token string">'vscode'</span>
+
+<span class="token comment">// this method is called when your extension is activated</span>
+<span class="token comment">// your extension is activated the very first time the command is executed</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">activate</span><span class="token punctuation">(</span><span class="token parameter">context<span class="token operator">:</span> vscode<span class="token punctuation">.</span>ExtensionContext</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Use the console to output diagnostic information (console.log) and errors (console.error)</span>
+  <span class="token comment">// This line of code will only be executed once when your extension is activated</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Congratulations, your extension &quot;helloword&quot; is now active!'</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// The command has been defined in the package.json file</span>
+  <span class="token comment">// Now provide the implementation of the command with registerCommand</span>
+  <span class="token comment">// The commandId parameter must match the command field in package.json</span>
+  <span class="token keyword">let</span> disposable <span class="token operator">=</span> vscode<span class="token punctuation">.</span>commands<span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span>
+    <span class="token string">'helloword.helloWorld'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// The code you place here will be executed every time your command is executed</span>
+
+      <span class="token comment">// Display a message box to the user</span>
+      vscode<span class="token punctuation">.</span>window<span class="token punctuation">.</span><span class="token function">showInformationMessage</span><span class="token punctuation">(</span><span class="token string">'Hello World from my first plugin!'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span>
+
+  context<span class="token punctuation">.</span>subscriptions<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// this method is called when your extension is deactivated</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">deactivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><ol><li>在<code>package.json</code>文件中通过contributes.commands将<code>helloword.helloWorld</code>暴露给用户；</li> <li>当用户在命令面板执行<code>helloword.helloWorld</code>时，由于我们通过activationEvents指定了<code>onCommand:helloword.helloWorld</code>，这时就会激活插件</li> <li>在插件代码中我们调用 vscode.commands.registerCommand，注册了<code>helloword.helloWorld</code>命令，当<code>helloword.helloWorld</code>命令触发时，对应的回调就会被执行</li></ol> <h2 id="调试"><a href="#调试" class="header-anchor">#</a> 调试</h2> <p>脚手架生成的项目已经生成了调试配置文件<code>launch.json</code>,点击调试按钮即可
+<img src="/vuepress-blog/assets/img/vscode-debug1.ed80df4e.png" alt="vscode-debug1.png"></p> <p>然后 vscode 会开启一个<code>[扩展开发宿主]</code>窗口
+<img src="/vuepress-blog/assets/img/vscode-debug2.68cef7a7.png" alt="vscode-debug2.png"></p> <p>在<code>[扩展开发宿主]</code>窗口中打开的工作区将会使用我们正在开发的插件，在原开发插件的窗口中正常打断点即可调试。
+<img src="/vuepress-blog/assets/img/vscode-debug3.2946c5df.png" alt="vscode-debug3.png"></p> <h2 id="打包和发布"><a href="#打包和发布" class="header-anchor">#</a> 打包和发布</h2> <p>通过<code>vsce</code>这个工具对插件进行打包和发布</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装vsce</span>
+<span class="token function">npm</span> i vsce -g
+
+<span class="token comment"># 本地打包</span>
+vsce package
+</code></pre></div><p>本地打包生成的vsix文件可以通过扩展右上角按钮选择<code>install from vsix</code>安装</p> <h3 id="发布"><a href="#发布" class="header-anchor">#</a> 发布</h3> <ul><li>注册 <a href="https://azure.microsoft.com/services/devops/" target="_blank" rel="noopener noreferrer">Azure DevOps<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>账号</li> <li>创建publisher</li> <li>为了使用vsce发布，需要生成<a href="https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats" target="_blank" rel="noopener noreferrer">Personal Access Tokens<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>执行<code>vsce publish</code></li></ul> <p>详细见<a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension" target="_blank" rel="noopener noreferrer">publishing-extension<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="实例"><a href="#实例" class="header-anchor">#</a> 实例</h2> <ul><li><a href="https://github.com/zenghj/vscode-translate-tips" target="_blank" rel="noopener noreferrer">vscode-translate-tips<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://github.com/alibaba/kiwi/tree/master/kiwi-linter" target="_blank" rel="noopener noreferrer">kiwi-linter<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <ul><li><a href="https://code.visualstudio.com/api" target="_blank" rel="noopener noreferrer">官方文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/" target="_blank" rel="noopener noreferrer">VS Code 插件开发文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://github.com/microsoft/vscode-extension-samples" target="_blank" rel="noopener noreferrer">microsoft/vscode-extension-samples<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html" target="_blank" rel="noopener noreferrer">VSCode 插件开发全攻略<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#创建-vscode-插件项目" title="创建 vscode 插件项目">创建 vscode 插件项目</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#开发" title="开发">开发</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#调试" title="调试">调试</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#打包和发布" title="打包和发布">打包和发布</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#发布" title="发布">发布</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#实例" title="实例">实例</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#参考" title="参考">参考</a></div></div></div></div> <footer class="footer" data-v-fdbf4940><div class="footer-left-wrap" data-v-fdbf4940><ul class="contact" data-v-fdbf4940><li class="contact-item" data-v-fdbf4940><a href="https://github.com/zenghj/vuepress-blog" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-fdbf4940><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-fdbf4940></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-fdbf4940><ul class="copyright" data-v-fdbf4940><li class="copyright-item" data-v-fdbf4940><a href="/vuepress-blog/#" class="nav-link" data-v-fdbf4940>Copyright © 2020-present Vue.js</a></li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/vuepress-blog/assets/js/app.ef89cdfb.js" defer></script><script src="/vuepress-blog/assets/js/6.2aa12a2f.js" defer></script><script src="/vuepress-blog/assets/js/3.2cf9b647.js" defer></script><script src="/vuepress-blog/assets/js/7.1d9b96e5.js" defer></script>
+  </body>
+</html>
