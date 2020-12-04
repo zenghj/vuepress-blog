@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于前端错误监控 | Julianzeng&#39;s Space</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <script>var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6e4e65a8fc9ab90248a37e794b19d594";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <meta name="description" content="
+try...catch...
+
+特点：可捕获同步异常错误，无法捕获异步Promise错误
+
+try {
+  throw new Error("oops");
+} catch (e) {
+  console.error(e)
+}
+
+window.onerror 或者 window.addEventListener('error')
+
+特点：捕获全局的同步异常错 ...">
+    <link rel="preload" href="/vuepress-blog/assets/css/0.styles.4eabf952.css" as="style"><link rel="preload" href="/vuepress-blog/assets/js/app.e19e4924.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/7.9f610f06.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/3.aaa3da73.js" as="script"><link rel="preload" href="/vuepress-blog/assets/js/34.cde5a9d6.js" as="script"><link rel="prefetch" href="/vuepress-blog/assets/js/10.654d1cd2.js"><link rel="prefetch" href="/vuepress-blog/assets/js/11.73fba8e7.js"><link rel="prefetch" href="/vuepress-blog/assets/js/12.c7148090.js"><link rel="prefetch" href="/vuepress-blog/assets/js/13.bdf4b289.js"><link rel="prefetch" href="/vuepress-blog/assets/js/14.0a9e4aab.js"><link rel="prefetch" href="/vuepress-blog/assets/js/15.d6b3e2f8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/16.d86820e9.js"><link rel="prefetch" href="/vuepress-blog/assets/js/17.de43c919.js"><link rel="prefetch" href="/vuepress-blog/assets/js/18.a1bc0567.js"><link rel="prefetch" href="/vuepress-blog/assets/js/19.c091f525.js"><link rel="prefetch" href="/vuepress-blog/assets/js/20.ff430c6a.js"><link rel="prefetch" href="/vuepress-blog/assets/js/21.583d6639.js"><link rel="prefetch" href="/vuepress-blog/assets/js/22.8eaea30b.js"><link rel="prefetch" href="/vuepress-blog/assets/js/23.564c4fc7.js"><link rel="prefetch" href="/vuepress-blog/assets/js/24.c97611b8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/25.9f2a7ba8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/26.54facea8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/27.64af3532.js"><link rel="prefetch" href="/vuepress-blog/assets/js/28.d69cbdcc.js"><link rel="prefetch" href="/vuepress-blog/assets/js/29.dd9ca787.js"><link rel="prefetch" href="/vuepress-blog/assets/js/30.880273f0.js"><link rel="prefetch" href="/vuepress-blog/assets/js/31.eccb1f78.js"><link rel="prefetch" href="/vuepress-blog/assets/js/32.d3b50c20.js"><link rel="prefetch" href="/vuepress-blog/assets/js/33.fb20f2e7.js"><link rel="prefetch" href="/vuepress-blog/assets/js/35.fdcd77ca.js"><link rel="prefetch" href="/vuepress-blog/assets/js/36.bbecb470.js"><link rel="prefetch" href="/vuepress-blog/assets/js/37.18ae3c46.js"><link rel="prefetch" href="/vuepress-blog/assets/js/38.8ac2b928.js"><link rel="prefetch" href="/vuepress-blog/assets/js/39.5b694f2c.js"><link rel="prefetch" href="/vuepress-blog/assets/js/4.ce6c6ac7.js"><link rel="prefetch" href="/vuepress-blog/assets/js/5.50ccfd6c.js"><link rel="prefetch" href="/vuepress-blog/assets/js/6.09174f1e.js"><link rel="prefetch" href="/vuepress-blog/assets/js/8.d4622ad8.js"><link rel="prefetch" href="/vuepress-blog/assets/js/9.5de273c5.js"><link rel="prefetch" href="/vuepress-blog/assets/js/vuejs-paginate.b1e5c227.js">
+    <link rel="stylesheet" href="/vuepress-blog/assets/css/0.styles.4eabf952.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/vuepress-blog/" class="nav-link home-link">Julianzeng's Space </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/vuepress-blog/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/vuepress-blog/tag/" class="nav-link">Tags</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/vuepress-blog/" class="nav-link mobile-home-link">Julianzeng's Space </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/vuepress-blog/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/vuepress-blog/tag/" class="nav-link">Tags</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        关于前端错误监控
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Julianzeng</span> <span itemprop="address">   in Beijing</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2019-12-05T00:00:00.000Z">
+      Thu Dec 05 2019
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/vuepress-blog/tag/Other" data-v-42ccfcd5><span data-v-42ccfcd5>Other</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="错误捕获"><a href="#错误捕获" class="header-anchor">#</a> 错误捕获</h2> <h3 id="try-catch"><a href="#try-catch" class="header-anchor">#</a> try...catch...</h3> <p>特点：可捕获同步异常错误，无法捕获异步Promise错误</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;oops&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="window-onerror-或者-window-addeventlistener-error"><a href="#window-onerror-或者-window-addeventlistener-error" class="header-anchor">#</a> window.onerror 或者 window.addEventListener('error')</h3> <p>特点：捕获全局的同步异常错误，无法捕获异步Promise错误</p> <div class="language-js extra-class"><pre class="language-js"><code>window<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">message<span class="token punctuation">,</span> source<span class="token punctuation">,</span> lineno<span class="token punctuation">,</span> colno<span class="token punctuation">,</span> error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// ... </span>
+<span class="token comment">/**
+ErrorEvent.prototype.message:  字符串，包含了所发生错误的描述信息。
+ErrorEvent.prototype.filename:  字符串，包含了发生错误的脚本文件的文件名。
+ErrorEvent.prototype.lineno:  数字，包含了错误发生时所在的行号。
+ErrorEvent.prototype.colno:  数字，包含了错误发生时所在的列号。
+ErrorEvent.prototype.error:   发生错误时所抛出的 Error 对象。
+*/</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="window-onunhandledrejection-或者-window-addeventlistener-unhandledrejection"><a href="#window-onunhandledrejection-或者-window-addeventlistener-unhandledrejection" class="header-anchor">#</a> window.onunhandledrejection 或者 window.addEventListener('unhandledrejection')</h3> <p>特定：可以捕获未明确捕获的所有异步错误；</p> <p>通过event.promise可以获取到相关的错误信息</p> <div class="language-js extra-class"><pre class="language-js"><code>window<span class="token punctuation">.</span><span class="token function-variable function">onunhandledrejection</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">message<span class="token punctuation">,</span> source<span class="token punctuation">,</span> lineno<span class="token punctuation">,</span> colno<span class="token punctuation">,</span> error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'unhandledrejection'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="跨域脚本错误，script-error"><a href="#跨域脚本错误，script-error" class="header-anchor">#</a> 跨域脚本错误，Script Error</h2> <p>当加载自不同域的脚本中发生语法错误时，为避免信息泄露，语法错误的细节将不会报告，而是使用简单的&quot;Script error.&quot;代替</p> <p>解决办法
+服务端添加Access-Control-Allow-Origin，页面在script标签中配置 crossorigin=&quot;anonymous&quot;。这样，便解决了因为跨域而带来的&quot;Script Error&quot;问题。</p> <p>并不是所有的浏览器都支持crossorigin=&quot;anonymous&quot;，也不是所有的服务端都能及时配置Access-Control-Allow-Origin，这种情况下可以通过劫持原生方法获取详细信息 (通常情况不推荐劫持，可能会有意料之外的风险)</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> nativeAddEventListener <span class="token operator">=</span> <span class="token class-name">EventTarget</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>addEventListener<span class="token punctuation">;</span> <span class="token comment">// 先将原生方法保存起来。</span>
+<span class="token class-name">EventTarget</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">addEventListener</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> func<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 重写原生方法。</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">wrappedFunc</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 将回调函数包裹一层try catch</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span> 
+			<span class="token keyword">return</span> <span class="token function">func</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">const</span> errorObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token operator">...</span>
+                error_name<span class="token operator">:</span> e<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">,</span>
+				error_msg<span class="token operator">:</span> e<span class="token punctuation">.</span>message <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">,</span>
+				error_stack<span class="token operator">:</span> e<span class="token punctuation">.</span>stack <span class="token operator">||</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>error <span class="token operator">&amp;&amp;</span> e<span class="token punctuation">.</span>error<span class="token punctuation">.</span>stack<span class="token punctuation">)</span><span class="token punctuation">,</span>
+				error_native<span class="token operator">:</span> e<span class="token punctuation">,</span>
+                <span class="token operator">...</span>
+			<span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token comment">// 接下来可以将errorObj统一进行处理。</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">nativeAddEventListener</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> type<span class="token punctuation">,</span> wrappedFunc<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用原生的方法，保证addEventListener正确执行</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>后面再通过addEventListener捕获 'error 和 'unhandledrejection' 异常</p> <h2 id="接口异常监控"><a href="#接口异常监控" class="header-anchor">#</a> 接口异常监控</h2> <p>劫持Ajax或者业务使用的发请求的工具</p> <div class="language-js extra-class"><pre class="language-js"><code>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>XMLHttpRequest<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> nativeAjaxSend <span class="token operator">=</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>send<span class="token punctuation">;</span> <span class="token comment">// 首先将原生的方法保存。</span>
+    <span class="token keyword">const</span> nativeAjaxOpen <span class="token operator">=</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>open<span class="token punctuation">;</span>
+
+
+    <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">open</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">mothod<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 劫持open方法，是为了拿到请求的url</span>
+        <span class="token keyword">const</span> xhrInstance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span> 
+        xhrInstance<span class="token punctuation">.</span>_url <span class="token operator">=</span> url<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">nativeAjaxOpen</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>mothod<span class="token punctuation">,</span> url<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">send</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 对于ajax请求的监控，主要是在send方法里处理。</span>
+
+        <span class="token keyword">const</span> oldCb <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onreadystatechange<span class="token punctuation">;</span>
+        <span class="token keyword">const</span> oldErrorCb <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onerror<span class="token punctuation">;</span>
+        <span class="token keyword">const</span> xhrInstance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+        xhrInstance<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 这里捕获到的error是一个ProgressEvent。e.target 的值为 XMLHttpRequest的实例。当网络错误(ajax并没有发出去)或者发生跨域的时候，会触发XMLHttpRequest的error, 此时，e.target.status 的值为:0，e.target.statusText 的值为:''</span>
+          
+            <span class="token keyword">const</span> errorObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token operator">...</span>
+                error_msg<span class="token operator">:</span> <span class="token string">'ajax filed'</span><span class="token punctuation">,</span>
+                error_stack<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    status<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+                    statusText<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>statusText
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                error_native<span class="token operator">:</span> e<span class="token punctuation">,</span>
+                <span class="token operator">...</span>
+            <span class="token punctuation">}</span>
+          
+            <span class="token comment">/*接下来可以对errorObj进行统一处理*/</span>
+          
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        xhrInstance<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'abort'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 主动取消ajax的情况需要标注，否则可能会产生误报</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'abort'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                xhrInstance<span class="token punctuation">.</span>_isAbort <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">onreadystatechange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>innerArgs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>xhrInstance<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>xhrInstance<span class="token punctuation">.</span>_isAbort <span class="token operator">&amp;&amp;</span> xhrInstance<span class="token punctuation">.</span>status <span class="token operator">!==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 请求不成功时，拿到错误信息</span>
+                   <span class="token keyword">const</span> errorObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+                        error_msg<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                            code<span class="token operator">:</span> xhrInstance<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+                            msg<span class="token operator">:</span> xhrInstance<span class="token punctuation">.</span>statusText<span class="token punctuation">,</span>
+                            url<span class="token operator">:</span> xhrInstance<span class="token punctuation">.</span>_url
+                        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        error_stack<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+                        error_native<span class="token operator">:</span> xhrInstance
+                    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                    
+                    <span class="token comment">/*接下来可以对errorObj进行统一处理*/</span>
+                    
+                <span class="token punctuation">}</span>
+                
+            <span class="token punctuation">}</span>
+            oldCb <span class="token operator">&amp;&amp;</span> <span class="token function">oldCb</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> innerArgs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">nativeAjaxSend</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div> <h2 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h2> <ul><li><a href="https://juejin.im/post/5c2d60616fb9a049dc025c39" target="_blank" rel="noopener noreferrer">前端开发中的Error以及异常捕获<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#错误捕获" title="错误捕获">错误捕获</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#try-catch" title="try...catch...">try...catch...</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#window-onerror-或者-window-addeventlistener-error" title="window.onerror 或者 window.addEventListener('error')">window.onerror 或者 window.addEventListener('error')</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#window-onunhandledrejection-或者-window-addeventlistener-unhandledrejection" title="window.onunhandledrejection 或者 window.addEventListener('unhandledrejection')">window.onunhandledrejection 或者 window.addEventListener('unhandledrejection')</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#跨域脚本错误，script-error" title="跨域脚本错误，Script Error">跨域脚本错误，Script Error</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#接口异常监控" title="接口异常监控">接口异常监控</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#参考资料" title="参考资料">参考资料</a></div></div></div></div> <footer class="footer" data-v-fdbf4940><div class="footer-left-wrap" data-v-fdbf4940><ul class="contact" data-v-fdbf4940><li class="contact-item" data-v-fdbf4940><a href="https://github.com/zenghj/vuepress-blog" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-fdbf4940><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-fdbf4940><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-fdbf4940></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-fdbf4940><ul class="copyright" data-v-fdbf4940><li class="copyright-item" data-v-fdbf4940><a href="/vuepress-blog/#" class="nav-link" data-v-fdbf4940>Copyright © 2020-present Vue.js</a></li></ul></div></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/vuepress-blog/assets/js/app.e19e4924.js" defer></script><script src="/vuepress-blog/assets/js/7.9f610f06.js" defer></script><script src="/vuepress-blog/assets/js/3.aaa3da73.js" defer></script><script src="/vuepress-blog/assets/js/34.cde5a9d6.js" defer></script>
+  </body>
+</html>

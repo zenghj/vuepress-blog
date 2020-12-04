@@ -35,3 +35,8 @@ webview支持5中缓存模式：
 解决方式就是给html资源配置`cache-control: no-cache`响应头
 
 ![](../images/cdn-header.png)
+
+
+## 参考
+
+* https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ
